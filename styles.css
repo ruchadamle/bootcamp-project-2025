@@ -295,7 +295,7 @@ form input[type="submit"]:hover {
 .project img {
   object-fit: cover;
   width: 100%;
-  max-width: 550px;
+  max-width: 225px;
   height: auto;
   border-radius: var(--radius);
   transition: transform var(--transition), box-shadow var(--transition);
