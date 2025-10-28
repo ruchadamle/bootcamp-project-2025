@@ -1,0 +1,65 @@
+.page-title {
+  margin-bottom: 0rem;
+}
+
+/* Add a wrapper class to scope all styles */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contactForm label {
+  font-weight: 600;
+  color: var(--clr-text);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  background: var(--clr-card-bg);
+  color: var(--clr-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: var(--clr-accent);
+  background: #2a3040;
+  outline: none;
+}
+
+/* Submit Buttons */
+.contactForm input[type="submit"],
+.contactForm button,
+.contactForm a.button {
+  background: var(--clr-card-bg);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  width: fit-content;
+  transition: border var(--transition);
+  text-decoration: none;
+}
+
+.contactForm input[type="submit"]:hover,
+.contactForm button:hover,
+.contactForm a.button:hover {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: var(--clr-dark-bg);
+  cursor: pointer;
+}

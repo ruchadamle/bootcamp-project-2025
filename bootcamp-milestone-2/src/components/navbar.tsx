@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import style from "./navbar.module.css";
 import Link from "next/link";
@@ -22,7 +23,7 @@ export default function Navbar() {
           <Link href="/resume">Resume</Link>
         </li>
         <li>
-          <Link href="/about">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </header>
