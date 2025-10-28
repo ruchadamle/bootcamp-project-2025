@@ -1,0 +1,38 @@
+/*
+  Root variables for colors, fonts, and common styles
+*/
+:root {
+  --clr-dark-bg: #0f131a;
+  --clr-card-bg: #1e2430;
+  --clr-accent: #5c7aff;
+  --clr-text: #e5e9f0;
+  --clr-muted: #a0a9b8;
+  --clr-border: #293043;
+  --radius: 8px;
+  --transition: 0.3s ease;
+  --font-sans: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+/* 
+   Base styles for HTML elements
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--clr-dark-bg);
+  color: var(--clr-text);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+  background: rgba(15, 19, 26, 0.95);
+  text-align: center;
+  color: var(--clr-muted);
+  border-top: 1px solid var(--clr-border);
+}

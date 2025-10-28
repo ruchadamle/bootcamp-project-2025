@@ -139,3 +139,25 @@ a.secondary {
     --button-secondary-border: #1a1a1a;
   }
 }
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: var(--clr-card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--clr-border);
+}
+
+.aboutImage img {
+  max-width: 320px;
+  border-radius: var(--radius);
+}
+
+.aboutText {
+  flex: 1;
+  min-width: 280px;
+}
