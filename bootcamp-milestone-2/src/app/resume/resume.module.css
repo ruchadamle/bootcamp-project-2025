@@ -1,0 +1,68 @@
+.page-title {
+  margin-bottom: 0rem;
+  text-align: center;
+}
+
+/* Wrapper to center the button */
+.download-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 2rem 0;
+}
+
+.download-btn {
+  background: var(--clr-card-bg);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius);
+  transition: transform var(--transition), background var(--transition),
+    border var(--transition), color var(--transition);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: var(--clr-dark-bg);
+  cursor: pointer;
+}
+
+/* Page layout container */
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Responsive grid for the top two sections */
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+/* 1024px and up: two columns */
+@media (min-width: 1024px) {
+  .section-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+/* Reusable list styling for Coursework / Skills */
+.list {
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+  list-style: disc;
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+}
