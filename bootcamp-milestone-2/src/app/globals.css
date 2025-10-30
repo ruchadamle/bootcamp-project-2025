@@ -15,19 +15,53 @@
 
 /* 
    Base styles for HTML elements
- */
+*/
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   background: var(--clr-dark-bg);
   color: var(--clr-text);
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Center the main content and set max width */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Prevent child elements from being wider than viewport */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Normalize heading spacing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+/* Footer stays full width */
 .footer {
   width: 100%;
   padding: 1rem 0;

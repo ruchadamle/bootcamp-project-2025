@@ -11,8 +11,8 @@ export default function Home() {
           <Image
             src="/headshot.jpg"
             alt="A headshot of Rucha Damle"
-            width={320}
-            height={320}
+            width={270}
+            height={270}
           />
         </div>
 
