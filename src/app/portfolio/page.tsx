@@ -1,30 +1,50 @@
-"use client";
 import React from "react";
 import styles from "./portfolio.module.css";
 import PortfolioEntry from "@/components/portfolioEntry";
+import connectDB from "@/database/db";
+import Project from "@/database/projectSchema";
 
-export default function PortfolioPage() {
+// Fetch projects from MongoDB
+async function getProjects() {
+  await connectDB();
+  // Query for all projects
+  try {
+    const projects = await Project.find().lean().exec();
+    return projects;
+  } catch (err) {
+    console.error("Error fetching projects:", err);
+    return null;
+  }
+}
+
+// Portfolio Page Component
+export default async function PortfolioPage() {
+  const projects = await getProjects();
+
+  // Handle case with no projects
+  if (!projects || projects.length === 0) {
+    return (
+      <main>
+        <h1 className={styles["page-title"]}>Portfolio</h1>
+        <p>No projects found.</p>
+      </main>
+    );
+  }
+
   return (
     <main>
       <h1 className={styles["page-title"]}>Portfolio</h1>
 
-      <PortfolioEntry
-        title="Rucha's Personal Website"
-        description="A personal website showcasing my work and projects."
-        imageSrc="/headshot.jpg"
-        alt="A headshot of Rucha Damle"
-        link="/"
-      />
-
-      <PortfolioEntry
-        title="Router Simulator"
-        description="A network router simulator built with Python."
-        imageSrc="/router-sim.jpg"
-        alt="A screenshot of the Router Simulator"
-        link="https://router-simulator-omega.vercel.app/"
-        external
-        reverse
-      />
+      {projects.map((project: any) => (
+        <PortfolioEntry
+          key={project.title}
+          title={project.title}
+          description={project.description}
+          imageSrc={project.image}
+          alt={project.image_alt}
+          link={project.link}
+        />
+      ))}
     </main>
   );
 }
