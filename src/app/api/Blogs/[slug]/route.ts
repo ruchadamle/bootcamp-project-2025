@@ -2,17 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/database/db";
 import blogSchema from "@/database/blogSchema";
 
-type IParams = {
-  params: {
-    slug: string;
-  };
+type RouteContext = {
+  params: Promise<{ slug: string }>;
 };
 
-export async function GET(req: NextRequest, { params }: IParams) {
-  // If { params } looks confusing, check the note below this code block
+export async function GET(req: NextRequest, { params }: RouteContext) {
+  await connectDB();
 
-  await connectDB(); // function from db.ts before
-  const { slug } = params; // another destructure
+  // ✅ Await params to get slug
+  const { slug } = await params;
 
   try {
     const blog = await blogSchema.findOne({ slug }).orFail();
