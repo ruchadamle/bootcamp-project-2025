@@ -4,6 +4,9 @@ import PortfolioEntry from "@/components/portfolioEntry";
 import connectDB from "@/database/db";
 import Project from "@/database/projectSchema";
 
+import Comment, { IComment } from "@/components/comment";
+import CommentForm from "@/components/commentForm";
+
 // Fetch projects from MongoDB
 async function getProjects() {
   await connectDB();
@@ -31,6 +34,10 @@ export default async function PortfolioPage() {
     );
   }
 
+  const primaryProject = projects[0] as (typeof projects)[0] & {
+    comments?: IComment[];
+  };
+
   return (
     <main>
       <h1 className={styles["page-title"]}>Portfolio</h1>
@@ -45,6 +52,35 @@ export default async function PortfolioPage() {
           link={project.link}
         />
       ))}
+
+      <section style={{ marginTop: "2.5rem", padding: "0 1rem 2rem" }}>
+        <h2
+          style={{
+            fontSize: "1.25rem",
+            textAlign: "center",
+            marginBottom: "1rem",
+          }}
+        >
+          Comments
+        </h2>
+
+        <div style={{ display: "grid", gap: 12, marginTop: 12 }}>
+          {(!primaryProject.comments ||
+            primaryProject.comments.length === 0) && (
+            <p style={{ color: "#666", textAlign: "center" }}>
+              No comments yet.
+            </p>
+          )}
+
+          {(primaryProject.comments ?? []).map((comment, index) => (
+            <Comment key={index} comment={comment} />
+          ))}
+        </div>
+
+        <div style={{ marginTop: 16 }}>
+          <CommentForm type="portfolio" />
+        </div>
+      </section>
     </main>
   );
 }

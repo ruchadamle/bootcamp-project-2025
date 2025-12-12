@@ -11,15 +11,9 @@ type CommentProps = {
   comment: IComment;
 };
 
-/**
- * Formats the comment time to a readable string.
- */
 function parseCommentTime(time: string | Date): string {
   const date = new Date(time);
-
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
+  if (Number.isNaN(date.getTime())) return "";
 
   return date.toLocaleString("en-US", {
     month: "long",
@@ -31,16 +25,16 @@ function parseCommentTime(time: string | Date): string {
   });
 }
 
-function Comment({ comment }: CommentProps) {
+export default function Comment({ comment }: CommentProps) {
   return (
     <div className={styles.commentCard}>
       <div className={styles.commentHeader}>
         <h4 className={styles.commentUser}>{comment.user}</h4>
-        <span className={styles.commentTime}>{parseCommentTime(comment.time)}</span>
+        <span className={styles.commentTime}>
+          {parseCommentTime(comment.time)}
+        </span>
       </div>
       <p className={styles.commentBody}>{comment.comment}</p>
     </div>
   );
 }
-
-export default Comment;

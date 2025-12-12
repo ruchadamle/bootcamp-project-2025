@@ -2,6 +2,7 @@ import React from "react";
 import connectDB from "@/database/db";
 import BlogModel from "@/database/blogSchema";
 import Comment, { IComment } from "@/components/comment";
+import CommentForm from "@/components/commentForm";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -72,6 +73,10 @@ export default async function BlogDetailPage({ params }: Props) {
           {(blog.comments ?? []).map((comment, index) => (
             <Comment key={index} comment={comment} />
           ))}
+        </div>
+
+        <div style={{ marginTop: 16 }}>
+          <CommentForm slug={blog.slug} type="blog" />
         </div>
       </section>
     </article>
