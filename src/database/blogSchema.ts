@@ -1,15 +1,33 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
+// Comment type
+export type Comment = {
+  user: string;
+  comment: string;
+  time: Date;
+};
+
 // Blog type
 type Blog = {
   title: string;
   slug: string;
   date: Date;
-  description: string; 
+  description: string;
   image: string;
   image_alt: string;
   content: string;
+  comments?: Comment[];
 };
+
+// Comment schema
+const commentSchema = new Schema<Comment>(
+  {
+    user: { type: String, required: true, trim: true },
+    comment: { type: String, required: true, trim: true },
+    time: { type: Date, default: Date.now },
+  },
+  { _id: false }
+);
 
 // Blog schema
 const blogSchema = new Schema<Blog>(
@@ -21,6 +39,7 @@ const blogSchema = new Schema<Blog>(
     image: { type: String, required: true },
     image_alt: { type: String, required: true },
     content: { type: String, required: true },
+    comments: { type: [commentSchema], default: [] },
   },
   { timestamps: true }
 );
