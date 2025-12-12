@@ -9,7 +9,6 @@ type RouteContext = {
 export async function GET(req: NextRequest, { params }: RouteContext) {
   await connectDB();
 
-  // ✅ Await params to get slug
   const { slug } = await params;
 
   try {
