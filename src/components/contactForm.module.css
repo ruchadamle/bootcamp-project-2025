@@ -1,0 +1,76 @@
+.form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--clr-card-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header p {
+  margin: 0.25rem 0;
+  color: var(--clr-muted);
+  font-size: 0.9rem;
+}
+
+.fieldGroup {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.fieldGroup label {
+  font-size: 0.9rem;
+}
+
+.fieldGroup input,
+.fieldGroup textarea {
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-card-bg);
+  color: var(--clr-text);
+  resize: vertical;
+  font-family: inherit;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.submit {
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-card-bg);
+  color: var(--clr-text);
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 160px;
+  justify-self: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
